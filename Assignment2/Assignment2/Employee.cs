@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 
 namespace Tut5
 {
-    class Employee
+    public class Employee
     {
-        public string name;
-        public int id;
-        public gender gen;
+        private string name;
+        private int id;
+        private Gender gen;
 
-        public enum gender
+        public enum Gender
         {
             M,
             F,
             X
         }
 
+        public string Name { get { return name; } set { if (value != null) name = value; } }
+
+        public int Id { get { return id; } set { id = value; } }
+
+        public Gender Gen { get { return gen; } set { gen = value; } }
+
         public override string ToString()
         {
             return name + " " + id.ToString() + " " + gen.ToString();
         }
-
-
     }
 }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Tut5
 {
+    public delegate Employee ManageWorker(int id);
     class Program
     {
-        static List<Employee> filterByGender(List<Employee> staff, Employee.gender gender)
+        /*static List<Employee> filterByGender(List<Employee> staff, Employee.Gender gender)
         {
             List<Employee> returnList = new List<Employee>();
 
@@ -20,15 +21,15 @@ namespace Tut5
                 }
             }
             return returnList;
-        }
+        }*/
 
-        static void Main(string[] args)
+        /*static void addEmployees()
         {
-            Employee emp1 = new Employee { name = "Jane", id = 1, gen = Employee.gender.F };
-            Employee emp2 = new Employee { name = "John", id = 2, gen = Employee.gender.M };
-            Employee emp3 = new Employee { name = "Billy", id = 3, gen = Employee.gender.M };
-            Employee emp4 = new Employee { name = "Anona", id = 4, gen = Employee.gender.X };
-            Employee emp5 = new Employee { name = "Liv", id = 5, gen = Employee.gender.F };
+            Employee emp1 = new Employee { name = "Jane", id = 1, gen = Employee.Gender.F };
+            Employee emp2 = new Employee { name = "John", id = 2, gen = Employee.Gender.M };
+            Employee emp3 = new Employee { name = "Billy", id = 3, gen = Employee.Gender.M };
+            Employee emp4 = new Employee { name = "Anona", id = 4, gen = Employee.Gender.X };
+            Employee emp5 = new Employee { name = "Liv", id = 5, gen = Employee.Gender.F };
 
             List<Employee> employees = new List<Employee>();
 
@@ -38,10 +39,36 @@ namespace Tut5
             employees.Add(emp4);
             employees.Add(emp5);
 
-            foreach (Employee item in filterByGender(employees, Employee.gender.X))
+            foreach (Employee item in filterByGender(employees, Employee.Gender.X))
             {
                 Console.WriteLine(item);
             }
+
+            Console.ReadLine();
+        }*/
+
+        static void Main(string[] args)
+        {
+            Action doSomething;
+            ManageWorker manage;
+
+            
+
+            //addEmployees();
+            Boss boss = new Boss();
+
+            doSomething = boss.Display;
+            manage = boss.Use;
+
+            doSomething();
+
+            Console.WriteLine("\n" + manage(1) + "\n");
+
+            doSomething();
+
+            Console.WriteLine("\n" + boss.Fire(1) + "\n");
+
+            doSomething();
 
             Console.ReadLine();
         }
