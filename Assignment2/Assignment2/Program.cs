@@ -9,19 +9,14 @@ namespace Tut5
     public delegate Employee ManageWorker(int id);
     class Program
     {
-        /*static List<Employee> filterByGender(List<Employee> staff, Employee.Gender gender)
+        static List<Employee> filterByGender(List<Employee> staff, Employee.Gender gender)
         {
-            List<Employee> returnList = new List<Employee>();
-
-            foreach (Employee item in staff)
-            {
-                if (item.gen == gender)
-                {
-                    returnList.Add(item);
-                }
-            }
-            return returnList;
-        }*/
+            IEnumerable<Employee> filteredEmployees =
+                from employee in staff
+                where employee.Gen == gender
+                select employee;
+            return filteredEmployees.ToList();
+        }
 
         /*static void addEmployees()
         {
@@ -49,26 +44,52 @@ namespace Tut5
 
         static void Main(string[] args)
         {
-            Action doSomething;
-            ManageWorker manage;
+            List<TrainingSession> trainingSessions = new List<TrainingSession>();
 
-            
+            /*trainingSessions.Add(new TrainingSession("One", 2004, DateTime.Now.AddDays(-1557), Mode.Conference));
+            trainingSessions.Add(new TrainingSession("Two", 2007, DateTime.Now.AddDays(-974), Mode.Journal));
+            trainingSessions.Add(new TrainingSession("Three", 1994, DateTime.Now.AddDays(-2375), Mode.Conference));
+            trainingSessions.Add(new TrainingSession("Four", 2015, DateTime.Now.AddDays(-156), Mode.Other));
+            trainingSessions.Add(new TrainingSession("Five", 2018, DateTime.Now.AddDays(-26), Mode.Conference));*/
 
-            //addEmployees();
+            IEnumerable<TrainingSession> filteredTrainingSessions =
+                from trainingSession in trainingSessions
+                where trainingSession.Freshness < 201
+                select trainingSession;
+
+            Action display;
+
             Boss boss = new Boss();
 
-            doSomething = boss.Display;
-            manage = boss.Use;
+            display = boss.Display;
 
-            doSomething();
+            /*ManageWorker use;
 
-            Console.WriteLine("\n" + manage(1) + "\n");
+            //addEmployees();
 
-            doSomething();
+            use = boss.Use;
+
+            display();
+
+            Console.WriteLine("\n" + use(1) + "\n");
+
+            display();
 
             Console.WriteLine("\n" + boss.Fire(1) + "\n");
 
-            doSomething();
+            display();*/
+
+            display();
+
+            foreach (TrainingSession trainingSession in filteredTrainingSessions)
+            {
+                Console.WriteLine(trainingSession.ToString());
+            }
+
+            foreach (TrainingSession session in Agency.LoadTrainingSessions(123460))
+            {
+                Console.WriteLine(session.ToString());
+            }
 
             Console.ReadLine();
         }

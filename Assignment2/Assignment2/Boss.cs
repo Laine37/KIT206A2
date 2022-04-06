@@ -12,7 +12,7 @@ namespace Tut5
 
         public Boss()
         {
-            employees = Agency.Generate();
+            employees = Agency.LoadAll();
         }
 
         public void Display()
