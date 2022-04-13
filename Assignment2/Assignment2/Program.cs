@@ -52,10 +52,7 @@ namespace Tut5
             trainingSessions.Add(new TrainingSession("Four", 2015, DateTime.Now.AddDays(-156), Mode.Other));
             trainingSessions.Add(new TrainingSession("Five", 2018, DateTime.Now.AddDays(-26), Mode.Conference));*/
 
-            IEnumerable<TrainingSession> filteredTrainingSessions =
-                from trainingSession in trainingSessions
-                where trainingSession.Freshness < 201
-                select trainingSession;
+            IEnumerable<TrainingSession> filteredTrainingSessions = from trainingSession in trainingSessions where trainingSession.Freshness < 201 select trainingSession;
 
             Action display;
 
