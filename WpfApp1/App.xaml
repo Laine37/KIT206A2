@@ -1,0 +1,13 @@
+﻿<Application x:Class="WpfApp1.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp1"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <local:Boss x:Key="employees_controller"/>
+        <ObjectDataProvider x:Key="employees_list"
+                             ObjectInstance="{StaticResource employees_controller}"
+                             MethodName="GetViewableList">
+        </ObjectDataProvider>
+    </Application.Resources>
+</Application>
