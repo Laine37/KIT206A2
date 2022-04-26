@@ -1,0 +1,34 @@
+﻿<Window x:Class="Assig1.EditMeeting"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Assig1"
+        mc:Ignorable="d"
+        Title="EditMeeting" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="2.5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="0,0,0,12" Text="Edit Meeting" TextWrapping="Wrap" FontSize="50" Height="67" VerticalAlignment="Bottom"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="80,45,0,0" Grid.Row="1" Text="Date" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" IsReadOnly="True"/>
+        <TextBox x:Name="DateEntry" Grid.Column="1" HorizontalAlignment="Left" Margin="200,45,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="80,90,0,0" Grid.Row="1" Text="Room" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="80,135,0,0" Grid.Row="1" Text="Start Time" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Margin="80,180,0,0" Grid.Row="1" Text="End Time" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="30"/>
+        <TextBox x:Name="RoomEntry" Grid.Column="1" HorizontalAlignment="Left" Margin="200,90,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <TextBox x:Name="StartEntry" Grid.Column="1" HorizontalAlignment="Left" Margin="200,135,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="EndEntry" Grid.Column="1" HorizontalAlignment="Left" Margin="200,180,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button Content="Back" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="25" Width="120" Click="Button_Click"/>
+        <Button Content="Confirm" Grid.Column="1" HorizontalAlignment="Center" Margin="0,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="25" Width="120"/>
+        <Button x:Name="EraseMeetingBtn" Content="Erase" Grid.Column="1" HorizontalAlignment="Left" Margin="270,10,0,0" Grid.Row="2" VerticalAlignment="Top" Height="25" Width="120" Click="EraseMeetingBtn_Click"/>
+
+    </Grid>
+</Window>
